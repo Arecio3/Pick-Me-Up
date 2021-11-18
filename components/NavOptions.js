@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Text, View, FlatList, TouchableOpacity, Image } from 'react-native'
 import { Icon } from 'react-native-elements'
@@ -5,26 +6,31 @@ import tw from 'twrnc'
     const data = [
         {
             id: '123',
-            title: 'Pick up a ride',
+            title: 'Pick Up',
             image: 'https://links.papareact.com/3pn',
             screen: 'MapScreen',
         },
         {
             id: '456',
-            title: 'Order food',
+            title: 'Food Pickup',
             image: 'https://links.papareact.com/28w',
             screen: 'EatScreen',
         },
     ]
 const NavOptions = () => {
+    const nav = useNavigation();
+
     return (
+        // List
         <FlatList 
         data={data}
         horizontal
         scrollEnabled={false}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
+            // Cards
             <TouchableOpacity
+            onPress={() => nav.navigate(item.screen)}
             style={tw`justify-center items-center p-2 pl-6 pb-8 pt-4 bg-gray-800 mt-2 mr-4 w-40 rounded-lg`}
             >
                 <View>
