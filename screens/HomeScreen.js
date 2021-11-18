@@ -1,8 +1,10 @@
 import React from 'react'
-import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
 import tw from 'twrnc';
 import NavOptions from '../components/NavOptions';
-import logo from '../assets/logo2.png'
+import logo from '../assets/logo2.png';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import { GOOG_MAPS_KEY } from '@env';
 
 const HomeScreen = () => {
     return (
@@ -16,6 +18,24 @@ const HomeScreen = () => {
                     marginTop: 5
                 }}
                 source={logo}/>
+                <GooglePlacesAutocomplete 
+                nearbyPlacesAPI="GooglePlacesSearch"
+                debounce={400}
+                placeholder="Pick up Location"
+                styles={{
+                    container: {
+                        flex: 0,
+                    },
+                    textInput: {
+                        fontSize: 18,
+                    },
+                }}
+
+                query={{
+                    key: GOOG_MAPS_KEY,
+                    language: 'en',
+                }}
+                />
             <NavOptions />
             </View>
         </SafeAreaView>

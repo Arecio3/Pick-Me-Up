@@ -31,7 +31,7 @@ const NavOptions = () => {
             // Cards
             <TouchableOpacity
             onPress={() => nav.navigate(item.screen)}
-            style={tw`justify-center items-center p-2 pl-6 pb-8 pt-4 bg-gray-800 mt-2 mr-4 w-40 rounded-lg`}
+            style={tw`justify-center items-center p-2 pl-6 pb-8 pt-4 bg-gray-800 mt-5 mr-4 w-40 rounded-lg`}
             >
                 <View>
                     <Image 
