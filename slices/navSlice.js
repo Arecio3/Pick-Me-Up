@@ -13,7 +13,7 @@ export const navSlice = createSlice({
     name: 'nav',
     initialState,
     // Dispatch Actions
-    reducer: {
+    reducers: {
         // Actions
         // state = state of origin, action = dispatch to data   
         setOrigin: (state, action) => {
@@ -21,7 +21,7 @@ export const navSlice = createSlice({
             state.origin = action.payload;
         },
 
-        setDestinations: (state, action) => {
+        setDestination: (state, action) => {
             state.destination = action.payload;
         },
 
@@ -31,11 +31,11 @@ export const navSlice = createSlice({
     },
 });
 // Allows us to use in entire app (Pushes Data)
-export const { setOrigin, setDestinations, setTravelTimeInformation } = navSlice.actions;
+export const { setOrigin, setDestination, setTravelTimeInformation } = navSlice.actions;
 
 // Selectors (Pulls Data) grabs current value of data
 export const selectOrigin = (state) => state.nav.origin;
-export const selectDestinations = (state) => state.nav.destination;
+export const selectDestination = (state) => state.nav.destination;
 export const selectTravelTimeInformation = (state) => state.nav.travelTimeInformation;
 
 export default navSlice.reducer;
