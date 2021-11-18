@@ -2,7 +2,9 @@ import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Text, View, FlatList, TouchableOpacity, Image } from 'react-native'
 import { Icon } from 'react-native-elements'
+import { useSelector } from 'react-redux'
 import tw from 'twrnc'
+import { selectOrigin } from '../slices/navSlice'
     const data = [
         {
             id: '123',
@@ -19,6 +21,7 @@ import tw from 'twrnc'
     ]
 const NavOptions = () => {
     const nav = useNavigation();
+    const origin = useSelector(selectOrigin);
 
     return (
         // List
@@ -32,8 +35,9 @@ const NavOptions = () => {
             <TouchableOpacity
             onPress={() => nav.navigate(item.screen)}
             style={tw`justify-center items-center p-2 pl-6 pb-8 pt-4 bg-gray-800 mt-5 mr-4 w-40 rounded-lg`}
+            disabled={!origin}
             >
-                <View>
+                <View style={tw`${!origin && 'opacity-20'}`}>
                     <Image 
                         style={{ width: 120, height: 120, resizeMode: 'contain'}}
                         source={{ uri: item.image }}

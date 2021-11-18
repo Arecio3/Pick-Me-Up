@@ -6,8 +6,8 @@ const initialState = {
     // Point B
     destination: null,
     // Time that it takes
-    travelTimeInformation: null
-}
+    travelTimeInformation: null,
+};
 
 export const navSlice = createSlice({
     name: 'nav',
