@@ -20,7 +20,6 @@ const data = [
 
 const NavFavs = () => {
     return (
-
         <FlatList 
         data={data}
         keyExtractor={(item) => item.id}

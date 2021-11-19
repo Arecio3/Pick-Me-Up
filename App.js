@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { KeyboardAvoidingView, Platform } from "react-native";
 import { Provider } from "react-redux";
 import HomeScreen from "./screens/HomeScreen";
 import MapScreen from "./screens/MapScreen";
@@ -18,6 +18,10 @@ export default function App() {
       <NavigationContainer>
         {/* Takes care of notches that are unique to devices */}
         <SafeAreaProvider>
+          <KeyboardAvoidingView
+          // Keyboard behavior is diff for each os android is height
+          behavior={Platform.OS === 'ios' ? "padding": "height"}
+          style={{ flex: 1 }}>
           {/* Works similar to React Router */}
           <Stack.Navigator initialRouteName="HomeScreen">
             <Stack.Screen
@@ -35,6 +39,7 @@ export default function App() {
               }}
             />
           </Stack.Navigator>
+          </KeyboardAvoidingView>
         </SafeAreaProvider>
       </NavigationContainer>
     </Provider>
