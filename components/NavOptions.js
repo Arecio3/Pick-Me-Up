@@ -3,7 +3,7 @@ import React from 'react'
 import { Text, View, FlatList, TouchableOpacity, Image } from 'react-native'
 import { Icon } from 'react-native-elements'
 import { useSelector } from 'react-redux'
-import tw from 'twrnc'
+import tw from 'tailwind-react-native-classnames'
 import { selectOrigin } from '../slices/navSlice'
     const data = [
         {

@@ -1,20 +1,32 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import tw from 'twrnc'
-import Map from '../components/Map'
-import MapView from 'react-native-maps';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import tw from "tailwind-react-native-classnames";
+import Map from "../components/Map";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import NavigateCard from "../components/NavigateCard";
+
 const MapScreen = () => {
-    return (
-        <View>
-            <View styles={tw`h-1/2`}>
-                <Map />
-            </View>
-            
-            <View styles={tw`h-1/2`}></View>
-        </View>
-    )
-}
+  const Stack = createNativeStackNavigator();
+  return (
+    <View>
+      <View style={tw`h-1/2`}>
+        <Map />
+      </View>
 
-export default MapScreen
+      <View style={tw`h-1/2`}>
+        <Stack.Navigator>
+          <Stack.Screen
+          name="NavigateCard"
+          component={NavigateCard}
+          options={{
+            headerShown: false,
+          }}
+          />
+        </Stack.Navigator>
+      </View>
+    </View>
+  );
+};
 
-const styles = StyleSheet.create({})
+export default MapScreen;
+

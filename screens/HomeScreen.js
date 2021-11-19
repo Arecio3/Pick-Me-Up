@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
-import tw from 'twrnc';
+import tw from 'tailwind-react-native-classnames';
 import NavOptions from '../components/NavOptions';
 import logo from '../assets/logo2.png';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
