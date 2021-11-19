@@ -1,4 +1,4 @@
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 import React from "react";
 import { KeyboardAvoidingView, Platform } from "react-native";
 import { Provider } from "react-redux";
@@ -20,8 +20,10 @@ export default function App() {
         <SafeAreaProvider>
           <KeyboardAvoidingView
           // Keyboard behavior is diff for each os android is height
-          behavior={Platform.OS === 'ios' ? "padding": "height"}
-          style={{ flex: 1 }}>
+          behavior={Platform.OS === "ios" ? "padding": "height"}
+          style={{ flex: 1 }}
+          keyboardVerticalOffset={Platform.OS === "ios" ? -64 : 0}
+          >
           {/* Works similar to React Router */}
           <Stack.Navigator initialRouteName="HomeScreen">
             <Stack.Screen
