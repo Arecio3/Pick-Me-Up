@@ -40,6 +40,13 @@ export default function App() {
                 headerShown: false,
               }}
             />
+            <Stack.Screen
+              name="EatScreen"
+              component={MapScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
           </Stack.Navigator>
           </KeyboardAvoidingView>
         </SafeAreaProvider>
